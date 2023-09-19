@@ -1,0 +1,26 @@
+{
+	"name": "DS_NYC_Payroll_AGENCY_MD_Synapse",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_AzureSynapse",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [
+			{
+				"name": "AgencyID",
+				"type": "varchar"
+			},
+			{
+				"name": "AgencyName",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Dim_NYC_Payroll_AGENCY_MD"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

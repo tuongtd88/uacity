@@ -1,0 +1,9 @@
+{
+	"name": "project4tuongtddatafactory",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "ee09d6b3-aedb-46c3-b804-ad6746577f55",
+		"tenantId": "af615078-ca30-4c77-bb48-c8c8c6909949"
+	}
+}

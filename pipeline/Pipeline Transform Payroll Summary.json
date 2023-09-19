@@ -1,0 +1,53 @@
+{
+	"name": "Pipeline Transform Payroll Summary",
+	"properties": {
+		"activities": [
+			{
+				"name": "Data flow payroll summary",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "dataflow payroll summary csv to Synapse",
+						"type": "DataFlowReference",
+						"parameters": {
+							"dataflow_param_fiscalyear": {
+								"value": "@pipeline().parameters.dataflow_param_fiscalyear",
+								"type": "Expression"
+							}
+						}
+					},
+					"staging": {
+						"linkedService": {
+							"referenceName": "LS_AzureDataLakeStorageGen2",
+							"type": "LinkedServiceReference"
+						},
+						"folderPath": "adlsnycpayroll-tuongtd/dirhistoryfiles"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"parameters": {
+			"dataflow_param_fiscalyear": {
+				"type": "int",
+				"defaultValue": 2020
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-09-19T07:47:11Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
